@@ -1,0 +1,28 @@
+<project name = "Project4" default = "compile">
+	
+	<target name = "compile" depends = "clean">
+		<javac includeantruntime = "false" srcdir ="." classpath = "."/>
+	</target>
+	
+	<target name = "clean">
+		<delete>
+			<fileset dir = "." includes = "**/*.class"/>
+			<fileset dir = "." includes = "**/*.*~"/>
+		</delete>	
+		<delete dir = "META-INF"/>
+	</target>
+	
+	<target name = "jar">
+		<jar jarfile = "Project4.jar" includes = "**/*.java build.xml" basedir = "."/>
+	</target>
+					
+	<target name = "run" depends="compile,author">
+		<java classname="csc250.Driver" classpath = "."/>
+	</target>
+
+	<target name = "author">
+		<echo message = "Leah Lewy"/>
+	</target>
+
+</project >
+			
